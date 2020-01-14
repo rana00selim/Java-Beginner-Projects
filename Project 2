@@ -1,0 +1,399 @@
+import java.util.Scanner;
+
+public class Project2 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int size = 6;
+        String name = "";
+        System.out.println("Hello, Welcome to Işık NameIt program.");
+        System.out.println("---------------------------------------------------------------- ");
+        System.out.println("The following options are available for you:");
+        System.out.println("1) Display a name ");
+        System.out.println("2) Change the size ");
+        System.out.println("3) Exit Program ");
+        System.out.println("Choose an option: ");
+        int option = input.nextInt();
+        if (option < 1 || option > 3) {
+            System.out.print("Invalid number!");
+        }
+            while (option >= 1 && option <=2) {
+                if (option == 1) {
+                    System.out.println("What is your name? ");
+                    name = input.next();
+
+                    for (int i = 0; i < name.length(); i++) {
+                        char a = name.charAt(i);
+                        print(a, size);
+                        System.out.println();
+                    }
+                } else {
+                    System.out.println("What is the new size? ");
+                    System.out.println("Min: 5");
+                    size = input.nextInt();
+                    if (size >= 5) {
+                        System.out.println("New size: " + size);
+                    }else {
+                        System.out.println("Invalid number!");
+                    }
+
+                }
+                System.out.println("The following options are available for you:");
+                System.out.println("1) Display a name ");
+                System.out.println("2) Change the size ");
+                System.out.println("3) Exit Program ");
+                System.out.println("Choose an option: ");
+                option = input.nextInt();
+            }
+
+        if (option == 3){
+                System.out.println("Shutting down...");
+            }
+
+    }
+
+            public static void print(char b, int c) {
+                switch (b) {
+                    case 'A':
+                    case 'a':
+                        for (int i = 0; i < c ;i++) {
+                            for (int j = 0; j < c ; j++) {
+                                if (j == 0 && i > 0 || j == c - 1 && i > 0|| i == c / 2 || i == 0 && (j != 0 && j != c-1))  {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'B':
+                    case 'b':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j <= c/2; j++) {
+                                if (j == 0 || i == 0 && j != c/2 || j == c/2 && i != 0 && i != c/2
+                                        && i != c-1 || i == c/2 && j != c/2 || i == c-1 && j != c/2)  {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'C':
+                    case 'c':
+                    case 'Ç':
+                    case 'ç':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j <= c/2; j++) {
+                                if (j != 0 && i == c-1 || i == 0  && j != 0 || j == 0 && i != 0 && i != c-1) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'D':
+                    case 'd':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (j == 1 || ((i == 0 || i == c-1) && (j > 1 && j < c-2)) || (j == c-2 && i != 0 && i != c-1))  {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'E':
+                    case 'e':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (j == 0 || i == 0 || i == c / 2 || i == c - 1) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'F':
+                    case 'f':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (j == 0 || i == 0 || i == c / 2) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'G':
+                    case 'g':
+                    case 'Ğ':
+                    case 'ğ':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if ((j == 1 && i != 0 && i != c - 1) ||
+                                        ((i == 0 || i == c - 1) && j > 1 && j < c - 2) || (i == ((c - 1) / 2) && j > 2 && j < c - 1) || (j == c - 2 && i != 0 && i >= ((c - 1) / 2) && i != c - 1))  {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'H':
+                    case 'h':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (j == c - 1 || j == 0 || i == c / 2) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'I':
+                    case 'i':
+                    case 'İ':
+                    case 'ı':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (i == c - 1 || j == c/2 || i == 0) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'J':
+                    case 'j':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (i == 0 || j == c/2 || i == c-1 && j < c/2 || j == 0 && i > c/2) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'K':
+                    case 'k':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if ( j == 0 || j > 1 && i == j + 1 || j > 1 && i == c/2 - j) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'L':
+                    case 'l':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (j == 0 || i == c - 1) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'M':
+                    case 'm':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (j == 0 || i == 0 || j == c - 1 || j == c/2 && i <= (c - c/3)) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'N':
+                    case 'n':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (j == 0 || j == c - 1 || i == j) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'O':
+                    case 'o':
+                    case 'Ö':
+                    case 'ö':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (j == 0 || j == c - 1 || i == 0 || i == c - 1) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'P':
+                    case 'p':
+                        for (int i = 0; i <= c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (j == 0 || i == 0 || j == c - 1 && i <= c/2 || i == c/2) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'R':
+                    case 'r':
+                        for (int i = 0; i <= c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (j == 0  || i == 0 && j <= c-2 || j == c - 2 && i <= c/2 || i == c/2 || j == c-1 && i >= c/2) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'S':
+                    case 's':
+                    case 'Ş':
+                    case 'ş':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (i == 0 && j > 0 || j == 0 && i < c/2 && i > 0 || i == c/2 || j == c - 1 && i > c/2 && i < c - 1 && i > c/2 && i < c - 1 || i == c - 1 && j < c - 1) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'T':
+                    case 't':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (i == 0 || j == c/2) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'U':
+                    case 'u':
+                    case 'Ü':
+                    case 'ü':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (j == 0 || i == c - 1 || j == c - 1) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'V':
+                    case 'v':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c*2; j++) {
+                                if (i == j || i == (2*c - 1) - j) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'W':
+                    case 'w':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c*2 ; j++) {
+                                if (j == 0 || j == c*2-1 || i == c - j - 1 || i + c == j) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'X':
+                    case 'x':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (i == j || (c-1) - j == i) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'Y':
+                    case 'y':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (i == j && i <= c / 2 || (c - 1) - j == i  && i < c / 2 || j == c/2 && i > c/2) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                    case 'Z':
+                    case 'z':
+                        for (int i = 0; i < c; i++) {
+                            for (int j = 0; j < c; j++) {
+                                if (i == 0 || i == c - 1 || (c-1) - j == i) {
+                                    System.out.print("* ");
+                                }else{
+                                    System.out.print("  ");
+                                }
+                            }
+                            System.out.println();
+                        }
+                        break;
+                }
+            }
+        }
+
+

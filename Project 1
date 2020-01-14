@@ -1,0 +1,105 @@
+import java.util.Scanner;
+
+public class projectcomp {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter a number less than 3000: ");////A 1/ E5 /O 10/ T 50 /B 100/ W 500/ Z 1000
+        int num = input.nextInt();
+
+        String numberString = "";
+        
+        if (number >= 0 && number < 4000){
+        switch ((num)/1000)
+        {
+            case 1:  numberString += "Z";
+                break;
+            case 2:  numberString += "ZZ";
+                break;
+            case 3:  numberString += "ZZZ";
+                break;
+            default: numberString = "";
+                break;
+        }
+
+        switch ((num%1000)/100)
+        {
+            case 0:  numberString += "";
+                break;
+            case 1:  numberString += "B";
+                break;
+            case 2:  numberString += "BB";
+                break;
+            case 3:  numberString += "BBW";
+                break;
+            case 4:  numberString += "BW";
+                break;
+            case 5:  numberString += "W";
+                break;
+            case 6:  numberString += "WB";
+                break;
+            case 7:  numberString += "WBB";
+                break;
+            case 8:  numberString += "BBZ";
+                break;
+            case 9:  numberString += "BZ";
+                break;
+            default: numberString = "";
+                break;
+        }
+
+        switch ((num%100)/10)
+        {
+            case 0:  numberString += "";
+                break;
+            case 1:  numberString += "O";
+                break;
+            case 2:  numberString += "OO";
+                break;
+            case 3:  numberString += "OOT";
+                break;
+            case 4:  numberString += "OT";
+                break;
+            case 5:  numberString += "T";
+                break;
+            case 6:  numberString += "TO";
+                break;
+            case 7:  numberString += "TOO";
+                break;
+            case 8:  numberString += "OOB";
+                break;
+            case 9:  numberString += "OB";
+                break;
+            default: numberString = "";
+                break;
+        }
+
+        switch (num%10)
+        {
+            case 0:  numberString += "";
+                break;
+            case 1:  numberString += "A";
+                break;
+            case 2:  numberString += "AA";
+                break;
+            case 3:  numberString += "AAE";
+                break;
+            case 4:  numberString += "AE";
+                break;
+            case 5:  numberString += "E";
+                break;
+            case 6:  numberString += "EA";
+                break;
+            case 7:  numberString += "EAA";
+                break;
+            case 8:  numberString += "AAO";
+                break;
+            case 9:  numberString += "AO";
+                break;
+            default: numberString = "";
+                break;
+        }
+ 
+
+        System.out.println("AEO number: " + numberString);
+        }
+    }

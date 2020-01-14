@@ -1,0 +1,203 @@
+import java.util.Scanner;
+
+public class Project3 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Hello, Welcome to Işık Photoshop program.");
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("The following options are available for you:");
+        System.out.println("1) Create a picture");
+        System.out.println("2) Clear the picture");
+        System.out.println("3) Color pixel (X, Y) in color C");
+        System.out.println("4) Draw vertical segment");
+        System.out.println("5) Draw horizontal segment");
+        System.out.println("6) Draw filled rectangle in color C");
+        System.out.println("7) Fills region with color C starting with pixel (X, Y)");
+        System.out.println("8) Exit Program");
+        System.out.println("Choose an option:");
+        int option = input.nextInt();
+
+        int width = 10;
+        int height = 10;
+        int x1 = 0;
+        int x2 = 0;
+        int y1 = 0;
+        int y2 = 0;
+        char [][] pic = new char[height][width];
+
+        for (int i = 0; i < pic.length; i++) {
+            for (int j = 0; j < pic[i].length; j++) {
+                pic[i][j] = '0';
+            }
+        }
+
+        while (option != 8) {
+
+            if (option < 1 || option > 8) {
+                System.out.println("Invalid number!");
+
+            } else if (option == 1) {
+                System.out.println("What is the width of picture?");
+                width = input.nextInt();
+                System.out.println("What is the height of picture?");
+                height = input.nextInt();
+                pic = new char[height][width];
+                for (int i = 0; i < pic.length; i++) {
+                    for (int j = 0; j < pic[i].length; j++) {
+                        pic[i][j] = '0';
+                    }
+                }
+                printArray(pic);
+
+            } else if (option == 2) {
+                System.out.println("Your picture has been deleted.");
+                System.out.println("What is the new width?");
+                width = input.nextInt();
+                System.out.println("What is the new height?");
+                height = input.nextInt();
+                pic = new char[height][width];
+                printArray(pic);
+
+            } else if (option == 3) {
+                System.out.println("Enter coordinate X: ");
+                x1 = input.nextInt();
+                System.out.println("Enter coordinate Y: ");
+                y1 = input.nextInt();
+                System.out.println("Enter color: ");
+                char color = input.next().charAt(0);
+                pic[x1 - 1][y1 - 1] = color;
+                printArray(pic);
+
+            } else if (option == 4) {
+                System.out.println("Enter coordinate X1: ");
+                x1 = input.nextInt();
+                System.out.println("Enter coordinate X2: ");
+                x2 = input.nextInt();
+                System.out.println("Enter coordinate Y: ");
+                y1 = input.nextInt();
+                System.out.println("Enter color: ");
+                char color = input.next().charAt(0);
+                opt4 (x1, x2, y1, pic, color);
+                printArray(pic);
+
+            } else if (option == 5) {
+                System.out.println("Enter coordinate X: ");
+                x1 = input.nextInt();
+                System.out.println("Enter coordinate Y1: ");
+                y1 = input.nextInt();
+                System.out.println("Enter coordinate Y2: ");
+                y2 = input.nextInt();
+                System.out.println("Enter color: ");
+                char color = input.next().charAt(0);
+                opt5 (x1, y1, y2, pic, color);
+                printArray(pic);
+
+            } else if (option == 6) {
+                System.out.println("Enter coordinate X1: ");
+                x1 = input.nextInt();
+                System.out.println("Enter coordinate X2: ");
+                x2 = input.nextInt();
+                System.out.println("Enter coordinate Y1: ");
+                y1 = input.nextInt();
+                System.out.println("Enter coordinate Y2: ");
+                y2 = input.nextInt();
+                System.out.println("Enter color: ");
+                char color = input.next().charAt(0);
+
+                opt6 (x1, x2, y1, y2, pic, color);
+                printArray(pic);
+
+            } else {
+                System.out.println("Enter coordinate X: ");
+                x1 = input.nextInt();
+                System.out.println("Enter coordinate Y: ");
+                y1 = input.nextInt();
+                System.out.println("Enter color: ");
+                char color = input.next().charAt(0);
+                char oldColor = pic[x1 - 1][y1 - 1];
+                fill(pic, oldColor, color);
+                printArray(pic);
+            }
+            System.out.println("----------------------------------------------------------------");
+            System.out.println("The following options are available for you:");
+            System.out.println("1) Create a picture");
+            System.out.println("2) Clear the picture");
+            System.out.println("3) Color pixel (X, Y) in color C");
+            System.out.println("4) Draw vertical segment");
+            System.out.println("5) Draw horizontal segment");
+            System.out.println("6) Draw filled rectangle in color C");
+            System.out.println("7) Fills region with color C starting with pixel (X, Y)");
+            System.out.println("8) Exit Program");
+            System.out.println("Choose an option:");
+            option = input.nextInt();
+
+        }
+        System.out.println("Exiting...");
+
+    }////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static void printArray(char[][] pic) {
+        for (int i = 0; i < pic.length; i++) {
+            for (int j = 0; j < pic[i].length; j++) {
+                System.out.print(pic[i][j] + " ");
+            }
+            System.out.println("");
+        }
+    }
+
+    public static void fill(char[][] array, char oldColor, char newColor) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] == oldColor) {
+                    array[i][j] = newColor;
+                }
+            }
+        }
+    }
+
+    public static void opt4(int x1, int x2, int y1, char [][] pic, char color){
+        if (x1 > x2) {
+            int temp = x1;
+            x1 = x2;
+            x2 = temp;
+        }
+        for (int i = x1 - 1; i < x2; i++) {
+            for (int j = y1 - 1; j <= y1 - 1; j++) {
+                pic[i][j] = color;
+            }
+        }
+    }
+
+    public static void opt5(int x1, int y1, int y2, char [][] pic, char color){
+        if (y1 > y2) {
+            int temp = y1;
+            y1 = y2;
+            y2 = temp;
+        }
+        for (int i = x1 - 1; i <= x1 - 1; i++) {
+            for (int j = y1 - 1; j < y2; j++) {
+                pic[i][j] = color;
+            }
+        }
+    }
+
+    public static void opt6(int x1, int x2, int y1, int y2, char [][] pic, char color){
+        if (x1 > x2) {
+            int temp = x1;
+            x1 = x2;
+            x2 = temp;
+        }
+        if (y1 > y2) {
+            int temp2 = y1;
+            y1 = y2;
+            y2 = temp2;
+        }
+        for (int i = y1 - 1; i < y2; i++) {
+            for (int j = x1 - 1; j < x2; j++) {
+                pic[i][j] = color;
+            }
+        }
+    }
+
+}
+
